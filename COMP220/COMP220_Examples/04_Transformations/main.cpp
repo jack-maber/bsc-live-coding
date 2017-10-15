@@ -252,11 +252,12 @@ int main(int argc, char* args[])
 
 		glUniform4fv(fragColourLocation, 1, fragColour);
 		glUniform1f(currentTimeLocation, (float)(currentTicks)/1000.0f);
+		
 		glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, value_ptr(modelMatrix));
 		glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
 		glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
 
-		// 1rst attribute buffer : vertices
+		// 1st attribute buffer : vertices
 		glEnableVertexAttribArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 		glVertexAttribPointer(
@@ -267,7 +268,7 @@ int main(int argc, char* args[])
 			0,                  // stride
 			(void*)0            // array buffer offset
 		);
-		// Draw the triangle !
+		// Draws triangle
 		glDrawArrays(GL_TRIANGLES, 0, 3); // Starting from vertex 0; 3 vertices total -> 1 triangle
 		glDisableVertexAttribArray(0);
 
@@ -276,9 +277,14 @@ int main(int argc, char* args[])
 		lastTicks = currentTicks;
 	}
 
+	//Deletes GLSL program created earlier
+	glDeleteProgram(programID);
+	
+	
+	//Deletes Vertexs and buffers
 	glDeleteVertexArrays(1, &VertexArrayID);
 	glDeleteBuffers(1, &vertexbuffer);
-	glDeleteProgram(programID);
+	
 
 	SDL_GL_DeleteContext(GL_Context);
 	//Destroy the window and quit SDL2, NB we should do this after all cleanup in this order!!!
