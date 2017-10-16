@@ -152,17 +152,63 @@ int main(int argc, char* args[])
 
 	// An array of 3 vectors which represents 3 vertices
 	static const GLfloat g_vertex_buffer_data[] = {
-		-0.5f, -0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		0.0f,  0.5f, 0.0f,
+	
+	//-1.0f, 1.0f, 0.0f, //First Triangle
+	//1.0f, 1.0f, 0.0f,
+	//-1.0f, -1.0f, 0.0f,
+
+	//-1.0f, -1.0, 0.0f, //Second Triangle
+	//1.0f, -1.0f, 0.0f,
+	//1.0f, 1.0f, 0.0f,
+
+		-1.0f,-1.0f,-1.0f, 
+		-1.0f,-1.0f, 1.0f,
+		-1.0f, 1.0f, 1.0f, 
+		1.0f, 1.0f,-1.0f, 
+		-1.0f,-1.0f,-1.0f,
+		-1.0f, 1.0f,-1.0f, 
+		1.0f,-1.0f, 1.0f,
+		-1.0f,-1.0f,-1.0f,
+		1.0f,-1.0f,-1.0f,
+		1.0f, 1.0f,-1.0f,
+		1.0f,-1.0f,-1.0f,
+		-1.0f,-1.0f,-1.0f,
+		-1.0f,-1.0f,-1.0f,
+		-1.0f, 1.0f, 1.0f,
+		-1.0f, 1.0f,-1.0f,
+		1.0f,-1.0f, 1.0f,
+		-1.0f,-1.0f, 1.0f,
+		-1.0f,-1.0f,-1.0f,
+		-1.0f, 1.0f, 1.0f,
+		-1.0f,-1.0f, 1.0f,
+		1.0f,-1.0f, 1.0f,
+		1.0f, 1.0f, 1.0f,
+		1.0f,-1.0f,-1.0f,
+		1.0f, 1.0f,-1.0f,
+		1.0f,-1.0f,-1.0f,
+		1.0f, 1.0f, 1.0f,
+		1.0f,-1.0f, 1.0f,
+		1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f,-1.0f,
+		-1.0f, 1.0f,-1.0f,
+		1.0f, 1.0f, 1.0f,
+		-1.0f, 1.0f,-1.0f,
+		-1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f, 1.0f,
+		-1.0f, 1.0f, 1.0f,
+		1.0f,-1.0f, 1.0f
+
+	
+	
+	
 	};
 
-	// This will identify our vertex buffer
+	// Vertex buffer indentifier
 	GLuint vertexbuffer;
-	// Generate 1 buffer, put the resulting identifier in vertexbuffer
+	
 	glGenBuffers(1, &vertexbuffer);
-	// The following commands will talk about our 'vertexbuffer' buffer
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+	
 	// Give our vertices to OpenGL.
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
 
@@ -175,10 +221,9 @@ int main(int argc, char* args[])
 	mat4 translationMatrix = translate(trianglePosition);
 	mat4 scaleMatrix = scale(triangleScale);
 	mat4 rotationMatrix= rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
+    mat4 modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
 
-	mat4 modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
-
-	vec3 cameraPosition = vec3(0.0f, 0.0f, -1.0f);
+	vec3 cameraPosition = vec3(0.0f, 0.0f, -5.0f);
 	vec3 cameraTarget = vec3(0.0f, 0.0f, 0.0f);
 	vec3 cameraUp = vec3(0.0f, 1.0f, 0.0f);
 
@@ -195,7 +240,7 @@ int main(int argc, char* args[])
 		printf("Unable to find %s uniform", "fragColour");
 	}
 
-	static const GLfloat fragColour[] = { 3.0f,3.0f,3.0f,3.0f };
+	static const GLfloat fragColour[] = { 0.3f,0.3f,0.3f,0.3f };
 
 	GLint currentTimeLocation= glGetUniformLocation(programID, "time");
 	if (currentTimeLocation < 0)
@@ -257,7 +302,7 @@ int main(int argc, char* args[])
 		glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
 		glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
 
-		// 1st attribute buffer : vertices
+		// Attributes for vertices
 		glEnableVertexAttribArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 		glVertexAttribPointer(
@@ -268,9 +313,12 @@ int main(int argc, char* args[])
 			0,                  // stride
 			(void*)0            // array buffer offset
 		);
+		
+		
 		// Draws triangle
-		glDrawArrays(GL_TRIANGLES, 0, 3); // Starting from vertex 0; 3 vertices total -> 1 triangle
+		glDrawArrays(GL_TRIANGLES, 0, 12*3); // Starting from vertex 0; 3 vertices total -> 1 triangle
 		glDisableVertexAttribArray(0);
+
 
 		SDL_GL_SwapWindow(window);
 
