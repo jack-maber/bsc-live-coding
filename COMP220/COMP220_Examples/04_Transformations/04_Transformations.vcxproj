@@ -92,10 +92,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Asus\Documents\Uni Work\2nd Year\220\bsc-live-coding\Libraries\glm;\\tremictssan.fal.ac.uk\userdata\JM192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\glm;..\..\..Libraries\glm\;..\..\..\Libraries\glew-2.1.0\include;..\..\..\Libraries\SDL2-2.0.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>\\tremictssan.fal.ac.uk\userdata\jm192929\My Documents\2nd Year\220\bsc-live-coding\COMP220\COMP220_Examples\x64\Debug;\\tremictssan.fal.ac.uk\userdata\jm192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\glew-2.1.0;\\tremictssan.fal.ac.uk\userdata\jm192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\SDL2_image-2.0.1;\\tremictssan.fal.ac.uk\userdata\jm192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\glm;C:\Users\Asus\Documents\Uni Work\2nd Year\220\bsc-live-coding\Libraries\glm;\\tremictssan.fal.ac.uk\userdata\JM192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\glm;..\..\..Libraries\glm\;..\..\..\Libraries\glew-2.1.0\include;..\..\..\Libraries\SDL2-2.0.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\..\..\Libraries\SDL2-2.0.6\lib\x64;..\..\..\Libraries\glew-2.1.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>\\tremictssan.fal.ac.uk\userdata\JM192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\SDL2_image-2.0.1\lib\x64;..\..\..\Libraries\SDL2-2.0.6\lib\x64;..\..\..\Libraries\glew-2.1.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;OpenGL32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
