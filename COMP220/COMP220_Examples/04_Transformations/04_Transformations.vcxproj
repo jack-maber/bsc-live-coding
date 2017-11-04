@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{BDF51D68-70F0-4CD7-8080-E29EB6C6ED0E}</ProjectGuid>
     <RootNamespace>My0_SDL_Window</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
     <ProjectName>04_myTransformations</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -92,11 +92,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>\\tremictssan.fal.ac.uk\userdata\jm192929\My Documents\2nd Year\220\bsc-live-coding\COMP220\COMP220_Examples\x64\Debug;\\tremictssan.fal.ac.uk\userdata\jm192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\glew-2.1.0;\\tremictssan.fal.ac.uk\userdata\jm192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\SDL2_image-2.0.1;\\tremictssan.fal.ac.uk\userdata\jm192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\glm;C:\Users\Asus\Documents\Uni Work\2nd Year\220\bsc-live-coding\Libraries\glm;\\tremictssan.fal.ac.uk\userdata\JM192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\glm;..\..\..Libraries\glm\;..\..\..\Libraries\glew-2.1.0\include;..\..\..\Libraries\SDL2-2.0.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>\\tremictssan.fal.ac.uk\userdata\jm192929\My Documents\2nd Year\220\bsc-live-coding\COMP220\COMP220_Examples\x64\Debug;\\tremictssan.fal.ac.uk\userdata\jm192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\glew-2.1.0;\\tremictssan.fal.ac.uk\userdata\jm192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\SDL2_image-2.0.1;\\tremictssan.fal.ac.uk\userdata\jm192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\glm;C:\Users\Asus\Documents\Uni Work\2nd Year\220\bsc-live-coding\Libraries\glm;\\tremictssan.fal.ac.uk\userdata\JM192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\glm;..\..\..Libraries\glm\;..\..\..\Libraries\glew-2.1.0\include;..\..\..\Libraries\SDL2-2.0.6\include;C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\glm;..\..\..\Libraries\SDL2_image-2.0.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>\\tremictssan.fal.ac.uk\userdata\JM192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\SDL2_image-2.0.1\lib\x64;..\..\..\Libraries\SDL2-2.0.6\lib\x64;..\..\..\Libraries\glew-2.1.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;OpenGL32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>\\tremictssan.fal.ac.uk\userdata\JM192929\My Documents\2nd Year\220\bsc-live-coding\Libraries\SDL2_image-2.0.1\lib\x64;..\..\..\Libraries\SDL2-2.0.6\lib\x64;..\..\..\Libraries\glew-2.1.0\lib\Release\x64;..\..\..\Libraries\SDL2_image-2.0.1\lib\x64;C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\SDL2_image-2.0.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;OpenGL32.lib;glew32.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
@@ -132,9 +132,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
+    <ClInclude Include="Shader.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="frag.glsl" />
