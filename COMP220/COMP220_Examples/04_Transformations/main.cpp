@@ -1,8 +1,4 @@
-//main.cpp - defines the entry point of the application
-
 #include "main.h"
-
-
 
 int main(int argc, char* args[])
 {
@@ -18,12 +14,8 @@ int main(int argc, char* args[])
 
 	IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
 
-
-
-	//Create a window, note we have to free the pointer returned using the DestroyWindow Function
-	//https://wiki.libsdl.org/SDL_CreateWindow
 	SDL_Window* window = SDL_CreateWindow("SDL2 Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
-	//Checks to see if the window has been created, the pointer will have a value of some kind
+	//Window Error checking
 	if (window == nullptr)
 	{
 		//Show error
@@ -34,7 +26,7 @@ int main(int argc, char* args[])
 		return 1;
 	}
 
-	//lets ask for a 3.2 core profile version of OpenGL
+	//Asks for 3.2 of OpenGL
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
@@ -57,86 +49,35 @@ int main(int argc, char* args[])
 	}
 
 
-	GLuint VertexArrayID;
-	glGenVertexArrays(1, &VertexArrayID);
-	glBindVertexArray(VertexArrayID);
-
-	// An array of 3 vectors which represents 3 vertices
-	static const GLfloat g_vertex_buffer_data[] = {
-	
-	//-1.0f, 1.0f, 0.0f, //First Triangle
-	//1.0f, 1.0f, 0.0f,
-	//-1.0f, -1.0f, 0.0f,
-
-	//-1.0f, -1.0, 0.0f, //Second Triangle
-	//1.0f, -1.0f, 0.0f,
-	//1.0f, 1.0f, 0.0f,
-
-		-1.0f,-1.0f,-1.0f, 
-		-1.0f,-1.0f, 1.0f,
-		-1.0f, 1.0f, 1.0f, 
-		1.0f, 1.0f,-1.0f, 
-		-1.0f,-1.0f,-1.0f,
-		-1.0f, 1.0f,-1.0f, 
-		1.0f,-1.0f, 1.0f,
-		-1.0f,-1.0f,-1.0f,
-		1.0f,-1.0f,-1.0f,
-		1.0f, 1.0f,-1.0f,
-		1.0f,-1.0f,-1.0f,
-		-1.0f,-1.0f,-1.0f,
-		-1.0f,-1.0f,-1.0f,
-		-1.0f, 1.0f, 1.0f,
-		-1.0f, 1.0f,-1.0f,
-		1.0f,-1.0f, 1.0f,
-		-1.0f,-1.0f, 1.0f,
-		-1.0f,-1.0f,-1.0f,
-		-1.0f, 1.0f, 1.0f,
-		-1.0f,-1.0f, 1.0f,
-		1.0f,-1.0f, 1.0f,
-		1.0f, 1.0f, 1.0f,
-		1.0f,-1.0f,-1.0f,
-		1.0f, 1.0f,-1.0f,
-		1.0f,-1.0f,-1.0f,
-		1.0f, 1.0f, 1.0f,
-		1.0f,-1.0f, 1.0f,
-		1.0f, 1.0f, 1.0f,
-		1.0f, 1.0f,-1.0f,
-		-1.0f, 1.0f,-1.0f,
-		1.0f, 1.0f, 1.0f,
-		-1.0f, 1.0f,-1.0f,
-		-1.0f, 1.0f, 1.0f,
-		1.0f, 1.0f, 1.0f,
-		-1.0f, 1.0f, 1.0f,
-		1.0f,-1.0f, 1.0f
-
-	
-	
-	
-	};
-
-	// Vertex buffer indentifier
-	GLuint vertexbuffer;
-	glGenBuffers(1, &vertexbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	// Give our vertices to OpenGL.
-	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
+	//loadModelFromFile("cube.nff",)
 
 
-	GLuint textureID = loadTextureFromFile("Crate.jpg");
+
 	
-	
-	
-	vec3 trianglePosition = vec3(0.0f,0.0f,0.0f);
+	//unsigned int numberOfVerts = 0;
+	//unsigned int numberOfIndices = 0;
+	//loadModelFromFile("Tank1.FBX", vertexbuffer, elementbuffer, numberOfVerts, numberOfIndices);
+
+	std::vector<Mesh*> meshes;
+	loadMeshFromFile("Tank1.FBX", meshes);
+		
+		
+	GLuint textureID = loadTextureFromFile("TANK1DF.png");
+
+
+
+	vec3 trianglePosition = vec3(0.0f, 0.0f, 0.0f);
 	vec3 triangleScale = vec3(1.0f, 1.0f, 1.0f);
 	vec3 triangleRotation = vec3(0.0f, 0.0f, 0.0f);
 
-	
+
 	mat4 translationMatrix = translate(trianglePosition);
 	mat4 scaleMatrix = scale(triangleScale);
-	mat4 rotationMatrix= rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
-    mat4 modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
+	mat4 rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
 
-	vec3 cameraPosition = vec3(0.0f, 0.0f, -5.0f);
+	mat4 modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
+
+	vec3 cameraPosition = vec3(0.0f, 0.0f, -10.0f);
 	vec3 cameraTarget = vec3(0.0f, 0.0f, 0.0f);
 	vec3 cameraUp = vec3(0.0f, 1.0f, 0.0f);
 
@@ -145,27 +86,20 @@ int main(int argc, char* args[])
 	mat4 projectionMatrix = perspective(radians(90.0f), float(800 / 600), 0.1f, 100.0f);
 
 
-	GLuint programID = LoadShaders("vert.glsl", "frag.glsl");
+	GLuint programID = LoadShaders("textureVert.glsl", "textureFrag.glsl");
 
-	GLint fragColourLocation=glGetUniformLocation(programID, "fragColour");
-	if (fragColourLocation < 0)
-	{
-		printf("Unable to find %s uniform", "fragColour");
-	}
 
-	static const GLfloat fragColour[] = { 0.3f,0.3f,0.3f,0.3f };
 
-	GLint currentTimeLocation= glGetUniformLocation(programID, "time");
-	if (currentTimeLocation < 0)
-	{
-		printf("Unable to find %s uniform", "time");
-	}
+	static const GLfloat fragColour[] = { 0.0f,1.0f,0.0f,1.0f };
 
+	GLint fragColourLocation = glGetUniformLocation(programID, "fragColour");
+	GLint currentTimeLocation = glGetUniformLocation(programID, "time");
 	GLint modelMatrixLocation = glGetUniformLocation(programID, "modelMatrix");
 	GLint viewMatrixLocation = glGetUniformLocation(programID, "viewMatrix");
 	GLint projectionMatrixLocation = glGetUniformLocation(programID, "projectionMatrix");
+	GLint textureLocation = glGetUniformLocation(programID, "baseTexture");
 
-
+	glEnable(GL_DEPTH_TEST);
 	int lastTicks = SDL_GetTicks();
 	int currentTicks = SDL_GetTicks();
 
@@ -203,55 +137,64 @@ int main(int argc, char* args[])
 		currentTicks = SDL_GetTicks();
 		float deltaTime = (float)(currentTicks - lastTicks) / 1000.0f;
 
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+		glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+		glClearDepth(1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, textureID);
+
 
 		glUseProgram(programID);
-
 		glUniform4fv(fragColourLocation, 1, fragColour);
-		glUniform1f(currentTimeLocation, (float)(currentTicks)/1000.0f);
-		
+		glUniform1f(currentTimeLocation, (float)(currentTicks) / 1000.0f);
 		glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, value_ptr(modelMatrix));
 		glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
 		glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
+		glUniform1i(textureLocation, 0);
 
-		// Attributes for vertices
-		glEnableVertexAttribArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-		glVertexAttribPointer(
-			0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-			3,                  // size
-			GL_FLOAT,           // type
-			GL_FALSE,           // normalized?
-			0,                  // stride
-			(void*)0            // array buffer offset
-		);
+	
+		// Draw
+		for (Mesh * currentMesh : meshes)
+		{
+			currentMesh->render();
+
+		}
 		
-		
-		// Draws triangle
-		glDrawArrays(GL_TRIANGLES, 0, 12*3); // Starting from vertex 0; 3 vertices total -> 1 triangle
-		glDisableVertexAttribArray(0);
-
-
 		SDL_GL_SwapWindow(window);
 
 		lastTicks = currentTicks;
 	}
 
-	//Deletes GLSL program created earlier
-	glDeleteProgram(programID);
+	auto iter = meshes.begin();
+	while (iter != meshes.end())
+	{
+		if ((*iter))
+		{
+			(*iter)->destroy();
+			delete (*iter);
+			iter = meshes.erase(iter);
+		}
+
+		else
+		{
+			iter++;
+		}
+	}
 	
 	
-	//Deletes Vertexs and buffers
-	glDeleteVertexArrays(1, &VertexArrayID);
-	glDeleteBuffers(1, &vertexbuffer);
+	meshes.clear();
+	
 	glDeleteTextures(1, &textureID);
-	
+	glDeleteProgram(programID);
 
 	SDL_GL_DeleteContext(GL_Context);
-	//Destroy the window and quit SDL2, NB we should do this after all cleanup in this order!!!
+	//Destroys Window
+	//https://wiki.libsdl.org/SDL_DestroyWindow
 	SDL_DestroyWindow(window);
+
 	IMG_Quit();
+	//https://wiki.libsdl.org/SDL_Quit
 	SDL_Quit();
 
 	return 0;
