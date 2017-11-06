@@ -22,7 +22,7 @@ int main(int argc, char* args[])
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, SDL_GetError(), "SDL_CreateWindow failed", NULL);
 		//Close the SDL Library
 		//https://wiki.libsdl.org/SDL_Quit
-		SDL_Quit();
+		SDL_Quit();    
 		return 1;
 	}
 
@@ -77,7 +77,7 @@ int main(int argc, char* args[])
 
 	mat4 modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
 
-	vec3 cameraPosition = vec3(0.0f, 0.0f, -10.0f);
+	vec3 cameraPosition = vec3(-4.0f, 4.0f, -5.0f);
 	vec3 cameraTarget = vec3(0.0f, 0.0f, 0.0f);
 	vec3 cameraUp = vec3(0.0f, 1.0f, 0.0f);
 
