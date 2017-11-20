@@ -13,9 +13,8 @@
 #include <glm\gtc\type_ptr.hpp>
 
 #include "vertex.h"
+#include "Model.h"
 #include "Shader.h"
 #include "Texture.h"
-#include "Model.h"
-
 
 using namespace glm;

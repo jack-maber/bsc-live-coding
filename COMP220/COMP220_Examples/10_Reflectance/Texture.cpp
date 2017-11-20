@@ -1,10 +1,9 @@
-
 #include "Texture.h"
 
 GLuint loadTextureFromFile(const std::string& filename)
 {
 	GLuint textureID;
-
+	
 
 	GLenum	textureFormat = GL_RGB;
 	GLenum	internalFormat = GL_RGB8;
@@ -44,12 +43,9 @@ GLuint loadTextureFromFile(const std::string& filename)
 	glBindTexture(GL_TEXTURE_2D, textureID);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, surface->w, surface->h, 0, textureFormat, GL_UNSIGNED_BYTE, surface->pixels);
-
+	
 
 	SDL_FreeSurface(surface);
 
 	return textureID;
 }
-
-
-

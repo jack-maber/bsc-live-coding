@@ -1,3 +1,5 @@
+//main.cpp - defines the entry point of the application
+
 #include "main.h"
 
 int main(int argc, char* args[])
@@ -12,21 +14,21 @@ int main(int argc, char* args[])
 		return 1;
 	}
 
-	IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
-
+	//Create a window, note we have to free the pointer returned using the DestroyWindow Function
+	//https://wiki.libsdl.org/SDL_CreateWindow
 	SDL_Window* window = SDL_CreateWindow("SDL2 Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
-	//Window Error checking
+	//Checks to see if the window has been created, the pointer will have a value of some kind
 	if (window == nullptr)
 	{
 		//Show error
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, SDL_GetError(), "SDL_CreateWindow failed", NULL);
 		//Close the SDL Library
 		//https://wiki.libsdl.org/SDL_Quit
-		SDL_Quit();    
+		SDL_Quit();
 		return 1;
 	}
 
-	//Asks for 3.2 of OpenGL
+	//lets ask for a 3.2 core profile version of OpenGL
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
@@ -48,56 +50,72 @@ int main(int argc, char* args[])
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, (char*)glewGetErrorString(glewError), "GLEW Init Failed", NULL);
 	}
 
-
-	//loadModelFromFile("cube.nff",)
-
-
-
-	
-	//unsigned int numberOfVerts = 0;
-	//unsigned int numberOfIndices = 0;
-	//loadModelFromFile("Tank1.FBX", vertexbuffer, elementbuffer, numberOfVerts, numberOfIndices);
-
 	std::vector<Mesh*> meshes;
 	loadMeshFromFile("Tank1.FBX", meshes);
-		
-		
-	GLuint textureID = loadTextureFromFile("TANK1DF.png");
+	GLuint textureID = loadTextureFromFile("Tank1DF.png");
 
-
-
-	vec3 trianglePosition = vec3(0.0f, 0.0f, 0.0f);
+	vec3 trianglePosition = vec3(0.0f,0.0f,0.0f);
 	vec3 triangleScale = vec3(1.0f, 1.0f, 1.0f);
-	vec3 triangleRotation = vec3(0.0f, 0.0f, 0.0f);
+	vec3 triangleRotation = vec3(0.0f, -2.0f, 0.0f);
 
-
+	
 	mat4 translationMatrix = translate(trianglePosition);
 	mat4 scaleMatrix = scale(triangleScale);
-	mat4 rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
+	mat4 rotationMatrix= rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
 
 	mat4 modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
 
-	vec3 cameraPosition = vec3(-4.0f, 4.0f, -5.0f);
+	vec3 cameraPosition = vec3(0.0f, 5.0f, -10.0f);
 	vec3 cameraTarget = vec3(0.0f, 0.0f, 0.0f);
 	vec3 cameraUp = vec3(0.0f, 1.0f, 0.0f);
 
 	mat4 viewMatrix = lookAt(cameraPosition, cameraTarget, cameraUp);
 
-	mat4 projectionMatrix = perspective(radians(90.0f), float(800 / 600), 0.1f, 100.0f);
+	mat4 projectionMatrix = perspective(radians(90.0f), float(800 / 640), 0.1f, 100.0f);
 
+	//Light Attributes
+	vec4 ambientLightColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	vec3 lightDirection = vec3(0.0f, 0.0f, -1.0f);
+	vec4 diffuseLightColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	vec4 specularLightColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	GLuint programID = LoadShaders("textureVert.glsl", "textureFrag.glsl");
+	//Material Attributes
+	vec4 ambientMaterialColour = vec4(0.0f, 0.0f, 0.0f, 1.0f);
+	vec4 diffuseMaterialColour = vec4(0.6f, 0.6f, 0.6f, 1.0f);
+	vec4 specularMaterialColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	float specularPower = 25.0f;
 
+	GLuint programID = LoadShaders("lightingVert.glsl", "lightingFrag.glsl");
 
+	GLint fragColourLocation=glGetUniformLocation(programID, "fragColour");
+	if (fragColourLocation < 0)
+	{
+		printf("Unable to find %s uniform\n", "fragColour");
+	}
 
 	static const GLfloat fragColour[] = { 0.0f,1.0f,0.0f,1.0f };
 
-	GLint fragColourLocation = glGetUniformLocation(programID, "fragColour");
-	GLint currentTimeLocation = glGetUniformLocation(programID, "time");
+	GLint currentTimeLocation= glGetUniformLocation(programID, "time");
+	if (currentTimeLocation < 0)
+	{
+		printf("Unable to find %s uniform\n", "time");
+	}
+
 	GLint modelMatrixLocation = glGetUniformLocation(programID, "modelMatrix");
 	GLint viewMatrixLocation = glGetUniformLocation(programID, "viewMatrix");
 	GLint projectionMatrixLocation = glGetUniformLocation(programID, "projectionMatrix");
 	GLint textureLocation = glGetUniformLocation(programID, "baseTexture");
+	GLint cameraPositionLocation = glGetUniformLocation(programID, "cameraPosition");
+	
+	GLint lightDirectionLocation = glGetUniformLocation(programID, "lightDirection");
+	GLint ambientLightColourLocation = glGetUniformLocation(programID, "ambientLightColour");
+	GLint diffuseLightColourLocation = glGetUniformLocation(programID, "diffuseLightColour");
+	GLint specularLightColourLocation = glGetUniformLocation(programID, "specularLightColour");
+
+	GLint ambientMaterialColourLocation = glGetUniformLocation(programID, "ambientMaterialColour");
+	GLint diffuseMaterialColourLocation = glGetUniformLocation(programID, "diffuseMaterialColour");
+	GLint specularMaterialColourLocation= glGetUniformLocation(programID, "specularMaterialColour");
+	GLint specularPowerLocation = glGetUniformLocation(programID, "specularPower");
 
 	glEnable(GL_DEPTH_TEST);
 	int lastTicks = SDL_GetTicks();
@@ -137,35 +155,50 @@ int main(int argc, char* args[])
 		currentTicks = SDL_GetTicks();
 		float deltaTime = (float)(currentTicks - lastTicks) / 1000.0f;
 
-		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClearDepth(1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+
 
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, textureID);
 
-
 		glUseProgram(programID);
+
 		glUniform4fv(fragColourLocation, 1, fragColour);
-		glUniform1f(currentTimeLocation, (float)(currentTicks) / 1000.0f);
+		glUniform1f(currentTimeLocation, (float)(currentTicks)/1000.0f);
 		glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, value_ptr(modelMatrix));
 		glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
 		glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
+
+		glUniform3fv(cameraPositionLocation, 1, value_ptr(cameraPosition));
+
 		glUniform1i(textureLocation, 0);
 
-	
-		// Draw
-		for (Mesh * currentMesh : meshes)
-		{
-			currentMesh->render();
+		glUniform3fv(lightDirectionLocation, 1, value_ptr(lightDirection));
+		glUniform4fv(ambientLightColourLocation, 1, value_ptr(ambientLightColour));
+		glUniform4fv(diffuseLightColourLocation, 1, value_ptr(diffuseLightColour));
+		glUniform4fv(specularLightColourLocation, 1, value_ptr(specularLightColour));
 
+		glUniform4fv(ambientMaterialColourLocation, 1, value_ptr(ambientMaterialColour));
+		glUniform4fv(diffuseMaterialColourLocation, 1, value_ptr(diffuseMaterialColour));
+		glUniform4fv(specularMaterialColourLocation, 1, value_ptr(specularMaterialColour));
+		glUniform1f(specularPowerLocation, specularPower);
+
+
+
+		//Draw Function and Swaps windows
+		for (Mesh *pMesh : meshes)
+		{
+			pMesh->render();
 		}
-		
 		SDL_GL_SwapWindow(window);
 
 		lastTicks = currentTicks;
 	}
 
+
+	//Iterates through the models
 	auto iter = meshes.begin();
 	while (iter != meshes.end())
 	{
@@ -181,19 +214,15 @@ int main(int argc, char* args[])
 			iter++;
 		}
 	}
-	
-	
+
 	meshes.clear();
-	
 	glDeleteTextures(1, &textureID);
 	glDeleteProgram(programID);
 
 	SDL_GL_DeleteContext(GL_Context);
-	//Destroys Window
+	//Destroy the window and quit SDL2, NB we should do this after all cleanup in this order!!!
 	//https://wiki.libsdl.org/SDL_DestroyWindow
 	SDL_DestroyWindow(window);
-
-	IMG_Quit();
 	//https://wiki.libsdl.org/SDL_Quit
 	SDL_Quit();
 

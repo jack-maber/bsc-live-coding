@@ -165,7 +165,7 @@ int main(int argc, char* args[])
 
 		lastTicks = currentTicks;
 	}
-
+	//Iterates through the models
 	auto iter = meshes.begin();
 	while (iter != meshes.end())
 	{
