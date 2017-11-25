@@ -36,6 +36,7 @@ void Mesh::copyBufferData(Vertex * pVerts, unsigned int numberOfVerts, unsigned 
 	m_NumberOfIndices = numberOfIndices;
 	m_NumberOfVertices = numberOfVerts;
 	glBindVertexArray(m_VAO);
+	
 	// 1rst attribute buffer : vertices
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);

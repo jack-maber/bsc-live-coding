@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0_SDL_Window", "0_SDL_Window\0_SDL_Window.vcxproj", "{BAD28DBE-A88A-46D6-B960-D9FF71B9250D}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_myTransformations", "06_Mesh\06_Mesh.vcxproj", "{98120DB2-90C0-4D96-B599-7C4B02E553C0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "10_Reflectance", "10_Reflectance\10_Reflectance.vcxproj", "{0B4A1712-CCAB-4339-A620-B8754141411D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "11_PostProcessing", "11_PostProcessing\11_PostProcessing.vcxproj", "{7C86E7AB-524B-4660-AA9E-074062B86DBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,14 @@ Global
 		{0B4A1712-CCAB-4339-A620-B8754141411D}.Release|x64.Build.0 = Release|x64
 		{0B4A1712-CCAB-4339-A620-B8754141411D}.Release|x86.ActiveCfg = Release|Win32
 		{0B4A1712-CCAB-4339-A620-B8754141411D}.Release|x86.Build.0 = Release|Win32
+		{7C86E7AB-524B-4660-AA9E-074062B86DBE}.Debug|x64.ActiveCfg = Debug|x64
+		{7C86E7AB-524B-4660-AA9E-074062B86DBE}.Debug|x64.Build.0 = Debug|x64
+		{7C86E7AB-524B-4660-AA9E-074062B86DBE}.Debug|x86.ActiveCfg = Debug|Win32
+		{7C86E7AB-524B-4660-AA9E-074062B86DBE}.Debug|x86.Build.0 = Debug|Win32
+		{7C86E7AB-524B-4660-AA9E-074062B86DBE}.Release|x64.ActiveCfg = Release|x64
+		{7C86E7AB-524B-4660-AA9E-074062B86DBE}.Release|x64.Build.0 = Release|x64
+		{7C86E7AB-524B-4660-AA9E-074062B86DBE}.Release|x86.ActiveCfg = Release|Win32
+		{7C86E7AB-524B-4660-AA9E-074062B86DBE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,3 @@
-//main.cpp - defines the entry point of the application
-
 #include "main.h"
 
 int main(int argc, char* args[])
@@ -14,10 +12,9 @@ int main(int argc, char* args[])
 		return 1;
 	}
 
-	//Create a window, note we have to free the pointer returned using the DestroyWindow Function
-	//https://wiki.libsdl.org/SDL_CreateWindow
+	
 	SDL_Window* window = SDL_CreateWindow("SDL2 Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
-	//Checks to see if the window has been created, the pointer will have a value of some kind
+	//Window Error checking
 	if (window == nullptr)
 	{
 		//Show error
@@ -28,7 +25,7 @@ int main(int argc, char* args[])
 		return 1;
 	}
 
-	//lets ask for a 3.2 core profile version of OpenGL
+	//Asks for 3.2 of OpenGL
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);

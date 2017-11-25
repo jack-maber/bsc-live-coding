@@ -46,7 +46,7 @@ bool loadModelFromFile(const std::string& filename, GLuint VBO, GLuint EBO, unsi
 	numVerts = vertices.size();
 	numIndices = indices.size();
 
-	// Give our vertices to OpenGL.
+	// Passes vertices to OpenGL
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, numVerts * sizeof(Vertex), vertices.data(), GL_STATIC_DRAW);
 
@@ -65,6 +65,7 @@ bool loadMeshFromFile(const std::string & filename, std::vector<Mesh*>& meshes)
 
 	const aiScene* scene = importer.ReadFile(filename, aiProcess_JoinIdenticalVertices | aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_GenUVCoords | aiProcess_CalcTangentSpace);
 
+	//Error checking if fails to load model
 	if (!scene)
 	{
 		printf("Model Loading Error - %s\n", importer.GetErrorString());
