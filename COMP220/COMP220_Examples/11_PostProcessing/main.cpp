@@ -16,7 +16,7 @@ int main(int argc, char* args[])
 
 	//Create a window, note we have to free the pointer returned using the DestroyWindow Function
 	//https://wiki.libsdl.org/SDL_CreateWindow
-	SDL_Window* window = SDL_CreateWindow("SDL2 Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+	SDL_Window* window = SDL_CreateWindow("SDL2 Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 640, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
 	//Checks to see if the window has been created, the pointer will have a value of some kind
 	if (window == nullptr)
 	{
@@ -85,6 +85,54 @@ int main(int argc, char* args[])
 	vec4 specularMaterialColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	float specularPower = 25.0f;
 
+	//Colour buffer texture
+	GLuint colourBufferID = createTexture(800, 640);
+
+	//Create Depth Buffer
+	GLuint depthRenderBufferID;
+	glGenRenderbuffers(1, &depthRenderBufferID);
+	glBindRenderbuffer(GL_RENDERBUFFER, depthRenderBufferID);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, 800, 640);
+
+	//Create Frame Buffer
+	GLuint frameBufferID;
+	glGenFramebuffers(1, &frameBufferID);
+	glBindFramebuffer(GL_FRAMEBUFFER, frameBufferID);
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderBufferID);
+	glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, colourBufferID, 0);
+
+	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+	{
+		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR,"UNABLE TO COMPLETE FRAMEBUFFER FOR PP", "FRAME BUFFER ERROR", NULL);
+	}
+
+	//Create Screen Aligned Quad
+	GLfloat screenVerts[] =
+	{
+		-1,-1,
+		1,1,
+		-1,1,
+		1,1
+	};
+
+	GLuint ScreenQuadVBOID;
+	glGenBuffers(1, &ScreenQuadVBOID);
+	glBindBuffer(GL_ARRAY_BUFFER, ScreenQuadVBOID);
+	glBufferData(GL_ARRAY_BUFFER, 8 * sizeof(GLfloat), screenVerts, GL_STATIC_DRAW);
+
+	//Generates Screen Vertex Array
+	GLuint screenVAO;
+	glGenVertexArrays(1, &screenVAO);
+	glBindVertexArray(screenVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, ScreenQuadVBOID);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+
+	GLuint postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postTextureFrag.glsl");
+	GLint texture0Location = glGetUniformLocation(postProcessingProgramID, "texture0");
+
+
 	GLuint programID = LoadShaders("lightingVert.glsl", "lightingFrag.glsl");
 
 	GLint fragColourLocation=glGetUniformLocation(programID, "fragColour");
@@ -117,7 +165,7 @@ int main(int argc, char* args[])
 	GLint specularMaterialColourLocation= glGetUniformLocation(programID, "specularMaterialColour");
 	GLint specularPowerLocation = glGetUniformLocation(programID, "specularPower");
 
-	glEnable(GL_DEPTH_TEST);
+	
 	int lastTicks = SDL_GetTicks();
 	int currentTicks = SDL_GetTicks();
 
@@ -155,6 +203,8 @@ int main(int argc, char* args[])
 		currentTicks = SDL_GetTicks();
 		float deltaTime = (float)(currentTicks - lastTicks) / 1000.0f;
 
+		glEnable(GL_DEPTH_TEST);
+		glBindFramebuffer(GL_FRAMEBUFFER, frameBufferID);
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClearDepth(1.0f);
 		glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -192,13 +242,27 @@ int main(int argc, char* args[])
 		{
 			pMesh->render();
 		}
+		glDisable(GL_DEPTH_TEST);
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+		
+		//Bind PP Shaders
+		glUseProgram(postProcessingProgramID);
+		
+		//Acitvate texture unit for colour buffer
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, colourBufferID);
+		glUniform1i(texture0Location, 0);
+
+		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 		SDL_GL_SwapWindow(window);
 
 		lastTicks = currentTicks;
 	}
 
 
-	//Iterates through the models
+	//Iterates through the models that are given
 	auto iter = meshes.begin();
 	while (iter != meshes.end())
 	{
@@ -215,6 +279,17 @@ int main(int argc, char* args[])
 		}
 	}
 
+
+	//All the deleting goes on down here
+	glDeleteProgram(postProcessingProgramID);
+	
+	glDeleteVertexArrays(1, &screenVAO);
+	glDeleteBuffers(1, &ScreenQuadVBOID);
+	
+	glDeleteFramebuffers(1, &frameBufferID);
+	glDeleteRenderbuffers(1, &depthRenderBufferID);
+	glDeleteTextures(1, &colourBufferID);
+	
 	meshes.clear();
 	glDeleteTextures(1, &textureID);
 	glDeleteProgram(programID);
