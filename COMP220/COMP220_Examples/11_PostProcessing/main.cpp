@@ -255,7 +255,9 @@ int main(int argc, char* args[])
 		glBindTexture(GL_TEXTURE_2D, colourBufferID);
 		glUniform1i(texture0Location, 0);
 
+		glBindVertexArray(screenVAO);
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+		
 		SDL_GL_SwapWindow(window);
 
 		lastTicks = currentTicks;
