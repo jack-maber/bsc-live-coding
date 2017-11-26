@@ -150,6 +150,7 @@ copy ..\..\..\Libraries\glew-2.1.0\bin\Release\x64\glew32.dll "$(OutDir)\glew32.
     <None Include="lightingFrag.glsl" />
     <None Include="lightingVert.glsl" />
     <None Include="passThroughVert.glsl" />
+    <None Include="postBlackAndWhite.glsl" />
     <None Include="postTextureFrag.glsl" />
     <None Include="textureFrag.glsl" />
     <None Include="textureVert.glsl" />
