@@ -1,0 +1,24 @@
+﻿  glew.c
+  EGLOpenGLWindow.cpp
+  fontstash.cpp
+  GLInstancingRenderer.cpp
+  GLFWOpenGLWindow.cpp
+  GLPrimitiveRenderer.cpp
+  GLRenderToTexture.cpp
+  LoadShader.cpp
+  opengl_fontstashcallbacks.cpp
+  OpenSans.cpp
+  SimpleCamera.cpp
+  SimpleOpenGL2App.cpp
+  SimpleOpenGL2Renderer.cpp
+  SimpleOpenGL3App.cpp
+  TwFonts.cpp
+  Win32OpenGLWindow.cpp
+  Win32Window.cpp
+C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\examples\ThirdPartyLibs\stb_image/stb_image_write.h(156): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. (compiling source file ..\..\examples\OpenGLWindow\opengl_fontstashcallbacks.cpp)
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen' (compiling source file ..\..\examples\OpenGLWindow\opengl_fontstashcallbacks.cpp)
+C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\examples\ThirdPartyLibs\stb_image/stb_image_write.h(495): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. (compiling source file ..\..\examples\OpenGLWindow\opengl_fontstashcallbacks.cpp)
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen' (compiling source file ..\..\examples\OpenGLWindow\opengl_fontstashcallbacks.cpp)
+..\..\examples\OpenGLWindow\fontstash.cpp(225): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+  OpenGL_Window.vcxproj -> C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\OpenGL_Window_vs2010_x64_debug.lib

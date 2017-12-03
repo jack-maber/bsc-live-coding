@@ -1,0 +1,16 @@
+﻿  win32.c
+  callbacks.c
+  compress.c
+  host.c
+  list.c
+  packet.c
+  peer.c
+  protocol.c
+..\..\examples\ThirdPartyLibs\enet\compress.c(303): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+..\..\examples\ThirdPartyLibs\enet\compress.c(308): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+..\..\examples\ThirdPartyLibs\enet\compress.c(326): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+..\..\examples\ThirdPartyLibs\enet\compress.c(548): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+..\..\examples\ThirdPartyLibs\enet\compress.c(563): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+..\..\examples\ThirdPartyLibs\enet\compress.c(578): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+..\..\examples\ThirdPartyLibs\enet\compress.c(593): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+  enet.vcxproj -> C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\enet_vs2010_x64_debug.lib

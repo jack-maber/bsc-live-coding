@@ -1,0 +1,15 @@
+﻿  bestfit.cpp
+  bestfitobb.cpp
+  cd_hull.cpp
+  cd_wavefront.cpp
+  concavity.cpp
+  ConvexBuilder.cpp
+  ConvexDecomposition.cpp
+  fitsphere.cpp
+  float_math.cpp
+  meshvolume.cpp
+  planetri.cpp
+  raytri.cpp
+  splitplane.cpp
+  vlookup.cpp
+  ConvexDecomposition.vcxproj -> C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\ConvexDecomposition_vs2010_x64_debug.lib

@@ -1,0 +1,8 @@
+﻿  SimpleSocket.cpp
+  ActiveSocket.cpp
+  PassiveSocket.cpp
+..\..\examples\ThirdPartyLibs\clsocket\src\SimpleSocket.cpp(915): warning C4996: 'lseek': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _lseek. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_io.h(501): note: see declaration of 'lseek'
+..\..\examples\ThirdPartyLibs\clsocket\src\SimpleSocket.cpp(924): warning C4996: 'read': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _read. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_io.h(521): note: see declaration of 'read'
+  clsocket.vcxproj -> C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\clsocket_vs2010_x64_debug.lib

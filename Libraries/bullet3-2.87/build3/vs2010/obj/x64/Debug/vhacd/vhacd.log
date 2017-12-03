@@ -1,0 +1,10 @@
+﻿  btAlignedAllocator.cpp
+  btConvexHullComputer.cpp
+  VHACD.cpp
+  vhacdICHull.cpp
+  vhacdManifoldMesh.cpp
+  vhacdMesh.cpp
+  vhacdVolume.cpp
+..\..\Extras\VHACD\src\btAlignedAllocator.cpp(67): warning C4311: 'type cast': pointer truncation from 'char *' to 'unsigned long'
+..\..\Extras\VHACD\src\btAlignedAllocator.cpp(67): warning C4302: 'type cast': truncation from 'char *' to 'unsigned long'
+  vhacd.vcxproj -> C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\vhacd_vs2010_x64_debug.lib

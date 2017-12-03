@@ -110,7 +110,7 @@ int main(int argc, char* args[])
 	GLfloat screenVerts[] =
 	{
 		-1,-1,
-		1,1,
+		1,-1,
 		-1,1,
 		1,1
 	};
@@ -129,7 +129,7 @@ int main(int argc, char* args[])
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 
-	GLuint postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postBlackAndWhite.glsl");
+	GLuint postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postTextureFrag.glsl");
 	GLint texture0Location = glGetUniformLocation(postProcessingProgramID, "texture0");
 
 

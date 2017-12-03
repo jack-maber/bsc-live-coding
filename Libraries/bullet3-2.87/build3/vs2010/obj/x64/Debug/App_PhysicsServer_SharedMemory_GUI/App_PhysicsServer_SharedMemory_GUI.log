@@ -1,0 +1,143 @@
+﻿  glew.c
+  RtMidi.cpp
+  IKTrajectoryHelper.cpp
+  PhysicsClient.cpp
+  PhysicsClientSharedMemory.cpp
+  PhysicsClientExample.cpp
+  PhysicsServerExample.cpp
+  PhysicsServerExampleBullet2.cpp
+  PhysicsServerSharedMemory.cpp
+  PhysicsServer.cpp
+  PhysicsClientC_API.cpp
+  PosixSharedMemory.cpp
+  Win32SharedMemory.cpp
+  InProcessMemory.cpp
+  PhysicsDirect.cpp
+  PhysicsDirectC_API.cpp
+  PhysicsLoopBack.cpp
+  PhysicsLoopBackC_API.cpp
+  PhysicsClientSharedMemory_C_API.cpp
+  PhysicsClientSharedMemory2_C_API.cpp
+  PhysicsClientSharedMemory2.cpp
+  SharedMemoryCommandProcessor.cpp
+  PhysicsServerCommandProcessor.cpp
+  b3PluginManager.cpp
+  TinyRendererVisualShapeConverter.cpp
+..\..\examples\SharedMemory\PhysicsServerExample.cpp(2422): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+..\..\examples\SharedMemory\PhysicsServerExample.cpp(2426): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+  geometry.cpp
+  model.cpp
+  tgaimage.cpp
+  our_gl.cpp
+  TinyRenderer.cpp
+  SimpleCamera.cpp
+  MyMultiBodyCreator.cpp
+  BulletUrdfImporter.cpp
+  UrdfParser.cpp
+  urdfStringSplit.cpp
+  URDF2Bullet.cpp
+  BulletMJCFImporter.cpp
+  b3ResourcePath.cpp
+  b3Clock.cpp
+  RobotLoggingUtil.cpp
+  ChromeTraceUtil.cpp
+  btBulletWorldImporter.cpp
+  btWorldImporter.cpp
+  bChunk.cpp
+  bDNA.cpp
+..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(575): warning C4838: conversion from 'btScalar' to 'float' requires a narrowing conversion
+  bFile.cpp
+..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(728): warning C4838: conversion from 'const double' to 'float' requires a narrowing conversion
+  btBulletFile.cpp
+  Wavefront2GLInstanceGraphicsShape.cpp
+  LoadMeshFromObj.cpp
+  LoadMeshFromCollada.cpp
+  tiny_obj_loader.cpp
+  tinystr.cpp
+  tinyxml.cpp
+  tinyxmlerror.cpp
+  tinyxmlparser.cpp
+  b3ImportMeshUtility.cpp
+  stb_image.cpp
+  main_opengl_single_example.cpp
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(222): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(230): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(228): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(270): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(292): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(290): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(328): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(514): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(552): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(570): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(1480): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(1509): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(1527): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2501): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2626): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2632): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2640): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2642): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2650): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2684): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2687): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2708): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2711): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2722): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2760): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2958): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2969): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(2973): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3150): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3154): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3162): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3170): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3183): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3200): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3204): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3347): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3375): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3386): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3387): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3401): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3420): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3438): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3449): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3458): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3485): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3486): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3700): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3704): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3709): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3720): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3749): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3756): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3773): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3803): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3836): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3948): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3957): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3962): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3966): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(4015): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(4220): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+  OpenGLGuiHelper.cpp
+..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(401): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(651): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(667): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(723): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+  GL_ShapeDrawer.cpp
+  CollisionShape2TriangleMesh.cpp
+  b3ThreadSupportInterface.cpp
+  b3Win32ThreadSupport.cpp
+     Creating library ..\..\bin\App_PhysicsServer_SharedMemory_GUI_vs2010_x64_debug.lib and object ..\..\bin\App_PhysicsServer_SharedMemory_GUI_vs2010_x64_debug.exp
+  App_PhysicsServer_SharedMemory_GUI.vcxproj -> C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\App_PhysicsServer_SharedMemory_GUI_vs2010_x64_debug.exe
+  App_PhysicsServer_SharedMemory_GUI.vcxproj -> ..\..\bin\App_PhysicsServer_SharedMemory_GUI_vs2010_x64_debug.pdb (Partial PDB)

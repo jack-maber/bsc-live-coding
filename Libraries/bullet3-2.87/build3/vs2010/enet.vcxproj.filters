@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="examples">
+      <UniqueIdentifier>{1EAEF365-B6B1-A548-B69A-C4AC34894443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="examples\ThirdPartyLibs">
+      <UniqueIdentifier>{7144372A-5D89-0449-B6DD-36EA26A40B05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="examples\ThirdPartyLibs\enet">
+      <UniqueIdentifier>{A3E6916A-AA5F-5D4A-ABED-DA5B83035F72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="examples\ThirdPartyLibs\enet\include">
+      <UniqueIdentifier>{1E8FCBA1-7E38-7241-974E-4B803D07A817}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="examples\ThirdPartyLibs\enet\include\enet">
+      <UniqueIdentifier>{16A200E3-A6B1-1248-B41A-2C1B1E7CFFF4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\examples\ThirdPartyLibs\enet\include\enet\callbacks.h">
+      <Filter>examples\ThirdPartyLibs\enet\include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\examples\ThirdPartyLibs\enet\include\enet\enet.h">
+      <Filter>examples\ThirdPartyLibs\enet\include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\examples\ThirdPartyLibs\enet\include\enet\list.h">
+      <Filter>examples\ThirdPartyLibs\enet\include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\examples\ThirdPartyLibs\enet\include\enet\protocol.h">
+      <Filter>examples\ThirdPartyLibs\enet\include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\examples\ThirdPartyLibs\enet\include\enet\time.h">
+      <Filter>examples\ThirdPartyLibs\enet\include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\examples\ThirdPartyLibs\enet\include\enet\types.h">
+      <Filter>examples\ThirdPartyLibs\enet\include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\examples\ThirdPartyLibs\enet\include\enet\unix.h">
+      <Filter>examples\ThirdPartyLibs\enet\include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\examples\ThirdPartyLibs\enet\include\enet\utility.h">
+      <Filter>examples\ThirdPartyLibs\enet\include\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\examples\ThirdPartyLibs\enet\include\enet\win32.h">
+      <Filter>examples\ThirdPartyLibs\enet\include\enet</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\examples\ThirdPartyLibs\enet\win32.c">
+      <Filter>examples\ThirdPartyLibs\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\examples\ThirdPartyLibs\enet\callbacks.c">
+      <Filter>examples\ThirdPartyLibs\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\examples\ThirdPartyLibs\enet\compress.c">
+      <Filter>examples\ThirdPartyLibs\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\examples\ThirdPartyLibs\enet\host.c">
+      <Filter>examples\ThirdPartyLibs\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\examples\ThirdPartyLibs\enet\list.c">
+      <Filter>examples\ThirdPartyLibs\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\examples\ThirdPartyLibs\enet\packet.c">
+      <Filter>examples\ThirdPartyLibs\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\examples\ThirdPartyLibs\enet\peer.c">
+      <Filter>examples\ThirdPartyLibs\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\examples\ThirdPartyLibs\enet\protocol.c">
+      <Filter>examples\ThirdPartyLibs\enet</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

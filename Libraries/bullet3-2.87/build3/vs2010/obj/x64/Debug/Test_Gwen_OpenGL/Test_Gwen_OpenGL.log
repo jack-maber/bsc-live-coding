@@ -1,0 +1,48 @@
+﻿  glew.c
+  OpenSans.cpp
+  TwFonts.cpp
+  LoadShader.cpp
+  GLPrimitiveRenderer.cpp
+  fontstash.cpp
+  opengl_fontstashcallbacks.cpp
+  b3Clock.cpp
+  Button.cpp
+  Checkbox.cpp
+  ComboBox.cpp
+  CrossSplitter.cpp
+  GroupBox.cpp
+  ImagePanel.cpp
+  Label.cpp
+  ListBox.cpp
+  MenuStrip.cpp
+  Numeric.cpp
+C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\examples\ThirdPartyLibs\stb_image/stb_image_write.h(156): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. (compiling source file ..\..\examples\OpenGLWindow\opengl_fontstashcallbacks.cpp)
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen' (compiling source file ..\..\examples\OpenGLWindow\opengl_fontstashcallbacks.cpp)
+C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\examples\ThirdPartyLibs\stb_image/stb_image_write.h(495): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. (compiling source file ..\..\examples\OpenGLWindow\opengl_fontstashcallbacks.cpp)
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen' (compiling source file ..\..\examples\OpenGLWindow\opengl_fontstashcallbacks.cpp)
+..\..\examples\OpenGLWindow\fontstash.cpp(225): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+  OpenGLSample.cpp
+  PanelListPanel.cpp
+  ProgressBar.cpp
+  Properties.cpp
+  RadioButton.cpp
+  ScrollControl.cpp
+..\..\test\GwenOpenGLTest\OpenGLSample.cpp(334): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
+..\..\test\GwenOpenGLTest\OpenGLSample.cpp(334): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(2254): note: see declaration of 'sscanf'
+..\..\test\GwenOpenGLTest\OpenGLSample.cpp(342): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+..\..\test\GwenOpenGLTest\OpenGLSample.cpp(345): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+  Slider.cpp
+  StatusBar.cpp
+  TabControl.cpp
+  TextBox.cpp
+  TreeControl.cpp
+  UnitTest.cpp
+  GLFWOpenGLWindow.cpp
+  Win32OpenGLWindow.cpp
+  Win32Window.cpp
+  Test_Gwen_OpenGL.vcxproj -> C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\Test_Gwen_OpenGL_vs2010_x64_debug.exe
+  Test_Gwen_OpenGL.vcxproj -> ..\..\bin\Test_Gwen_OpenGL_vs2010_x64_debug.pdb (Partial PDB)

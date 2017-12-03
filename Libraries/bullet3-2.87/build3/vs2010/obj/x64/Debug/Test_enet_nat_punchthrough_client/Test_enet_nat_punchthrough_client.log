@@ -1,0 +1,11 @@
+﻿  main.cpp
+..\..\test\enet\nat_punchthrough\client\main.cpp(73): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+..\..\test\enet\nat_punchthrough\client\main.cpp(90): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+..\..\test\enet\nat_punchthrough\client\main.cpp(106): warning C4477: 'printf' : format string '%u' requires an argument of type 'unsigned int', but variadic argument 1 has type '::size_t'
+  ..\..\test\enet\nat_punchthrough\client\main.cpp(106): note: consider using '%zu' in the format string
+..\..\test\enet\nat_punchthrough\client\main.cpp(106): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 3 has type 'void *'
+..\..\test\enet\nat_punchthrough\client\main.cpp(142): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'void *'
+  Test_enet_nat_punchthrough_client.vcxproj -> C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\Test_enet_nat_punchthrough_client_vs2010_x64_debug.exe
+  Test_enet_nat_punchthrough_client.vcxproj -> ..\..\bin\Test_enet_nat_punchthrough_client_vs2010_x64_debug.pdb (Partial PDB)
