@@ -181,7 +181,7 @@ int main(int argc, char* args[])
 
 	btDiscreteDynamicsWorld* dynamicsWorld = new btDiscreteDynamicsWorld(dispatcher, overlappingPairCache, solver, collisionConfiguration);
 
-	dynamicsWorld->setGravity(btVector3(0, -10, 0));
+	dynamicsWorld->setGravity(btVector3(0, -2, 0));
 
 	//Creates Floor
 	btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(50.), btScalar(2.), btScalar(50.)));
@@ -214,13 +214,13 @@ int main(int argc, char* args[])
 	//Sets hitbox position to same as the model location in the world space 
 	carTransform.setOrigin(btVector3(trianglePosition.x, trianglePosition.y, trianglePosition.z));
 	btVector3 carInertia(0, 0, 0);
-	btScalar carMass(1.f);
+	btScalar carMass(1.0f);
 	carCollisionShape->calculateLocalInertia(carMass, carInertia);
 		
 	//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
 	btDefaultMotionState* carMotionState = new btDefaultMotionState(carTransform);
 	btRigidBody::btRigidBodyConstructionInfo carRbInfo(carMass, carMotionState, carCollisionShape, carInertia);
-	btRigidBody* carRigidbody = new btRigidBody(rbInfo);
+	btRigidBody* carRigidbody = new btRigidBody(carRbInfo);
 
 	dynamicsWorld->addRigidBody(carRigidbody);
 
@@ -260,6 +260,7 @@ int main(int argc, char* args[])
 					break;
 				}
 			}
+
 		}
 
 		currentTicks = SDL_GetTicks();
@@ -270,6 +271,7 @@ int main(int argc, char* args[])
 		carTransform=carRigidbody->getWorldTransform();
 		btVector3 carOrigin = carTransform.getOrigin();
 		btQuaternion carRotation = carTransform.getRotation();
+		//printf("Position %f\n", carOrigin.getY());
 
 		trianglePosition = vec3(carOrigin.getX(), carOrigin.getY(), carOrigin.getZ());
 
@@ -369,7 +371,10 @@ int main(int argc, char* args[])
 	
 	//Delete Ground
 	delete groundShape;
-	delete GroundRigidbody->getMotionState();
+	if (GroundRigidbody->getMotionState() != NULL)
+	{
+		delete GroundRigidbody->getMotionState();
+	}
 	delete GroundRigidbody;
 	
 	//delete dynamics world

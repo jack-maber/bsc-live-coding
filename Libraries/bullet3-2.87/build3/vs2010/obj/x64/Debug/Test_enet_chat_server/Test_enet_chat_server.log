@@ -1,7 +1,0 @@
-﻿  main.cpp
-..\..\test\enet\chat\server\main.cpp(67): warning C4477: 'printf' : format string '%u' requires an argument of type 'unsigned int', but variadic argument 1 has type '::size_t'
-  ..\..\test\enet\chat\server\main.cpp(67): note: consider using '%zu' in the format string
-..\..\test\enet\chat\server\main.cpp(67): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 3 has type 'void *'
-..\..\test\enet\chat\server\main.cpp(80): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'void *'
-  Test_enet_chat_server.vcxproj -> C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\Test_enet_chat_server_vs2010_x64_debug.exe
-  Test_enet_chat_server.vcxproj -> ..\..\bin\Test_enet_chat_server_vs2010_x64_debug.pdb (Partial PDB)

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0_SDL_Window", "0_SDL_Window\0_SDL_Window.vcxproj", "{BAD28DBE-A88A-46D6-B960-D9FF71B9250D}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "11_PostProcessing", "11_PostProcessing\11_PostProcessing.vcxproj", "{7C86E7AB-524B-4660-AA9E-074062B86DBE}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "12_Physics", "12_Physics\12_Physics.vcxproj", "{1DB2583B-D336-4CDC-8DF9-83E8F9812732}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "13_Refactoring", "13_Refactoring\13_Refactoring.vcxproj", "{739D8B7B-9D2E-4E8E-84FE-218BA0B80897}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,14 @@ Global
 		{1DB2583B-D336-4CDC-8DF9-83E8F9812732}.Release|x64.Build.0 = Release|x64
 		{1DB2583B-D336-4CDC-8DF9-83E8F9812732}.Release|x86.ActiveCfg = Release|Win32
 		{1DB2583B-D336-4CDC-8DF9-83E8F9812732}.Release|x86.Build.0 = Release|Win32
+		{739D8B7B-9D2E-4E8E-84FE-218BA0B80897}.Debug|x64.ActiveCfg = Debug|x64
+		{739D8B7B-9D2E-4E8E-84FE-218BA0B80897}.Debug|x64.Build.0 = Debug|x64
+		{739D8B7B-9D2E-4E8E-84FE-218BA0B80897}.Debug|x86.ActiveCfg = Debug|Win32
+		{739D8B7B-9D2E-4E8E-84FE-218BA0B80897}.Debug|x86.Build.0 = Debug|Win32
+		{739D8B7B-9D2E-4E8E-84FE-218BA0B80897}.Release|x64.ActiveCfg = Release|x64
+		{739D8B7B-9D2E-4E8E-84FE-218BA0B80897}.Release|x64.Build.0 = Release|x64
+		{739D8B7B-9D2E-4E8E-84FE-218BA0B80897}.Release|x86.ActiveCfg = Release|Win32
+		{739D8B7B-9D2E-4E8E-84FE-218BA0B80897}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

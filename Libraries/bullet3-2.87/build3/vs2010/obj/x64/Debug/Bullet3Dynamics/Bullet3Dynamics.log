@@ -1,7 +1,0 @@
-﻿  b3CpuRigidBodyPipeline.cpp
-  b3FixedConstraint.cpp
-  b3Generic6DofConstraint.cpp
-  b3PgsJacobiSolver.cpp
-  b3Point2PointConstraint.cpp
-  b3TypedConstraint.cpp
-  Bullet3Dynamics.vcxproj -> C:\Users\Jack\Desktop\Uni Stuff\2nd Year\220\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\Bullet3Dynamics_vs2010_x64_debug.lib
