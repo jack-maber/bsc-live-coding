@@ -111,7 +111,7 @@ public:
 		return m_SpecularPower;
 	};
 
-	const GLuint getShaderPorgramID()
+	const GLuint getShaderProgramID()
 	{
 		return m_ShaderProgramID;
 	};
