@@ -244,6 +244,7 @@ int main(int argc, char* args[])
 	glDeleteTextures(1, &colourBufferID);
 
 	SDL_GL_DeleteContext(GL_Context);
+	
 	//Destroy the window and quit SDL2, NB we should do this after all cleanup in this order!!!
 	//https://wiki.libsdl.org/SDL_DestroyWindow
 	SDL_DestroyWindow(window);

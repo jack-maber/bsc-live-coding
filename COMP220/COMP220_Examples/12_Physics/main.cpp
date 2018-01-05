@@ -42,6 +42,7 @@ int main(int argc, char* args[])
 		SDL_Quit();
 		return 1;
 	}
+
 	//Initialize GLEW
 	glewExperimental = GL_TRUE;
 	GLenum glewError = glewInit();
