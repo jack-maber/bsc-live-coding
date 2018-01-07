@@ -231,6 +231,7 @@ int main(int argc, char* args[])
 	
 #pragma endregion
 
+	//Raycast code comes from :http://www.opengl-tutorial.org/miscellaneous/clicking-on-objects/picking-with-a-physics-library/
 
 	// The ray Start and End positions, in Normalized Device Coordinates (Have you read Tutorial 4 ?)
 	glm::vec4 lRayStart_NDC(
@@ -262,7 +263,7 @@ int main(int argc, char* args[])
 	glm::vec3 lRayDir_world(lRayEnd_world - lRayStart_world);
 	lRayDir_world = glm::normalize(lRayDir_world);
 
-	//SDL_ShowCursor(SDL_DISABLE);
+	//Locks cursor to OPENGL screen 
 	SDL_SetRelativeMouseMode(SDL_bool(SDL_ENABLE));
 
 	//Timing Declarations
@@ -368,13 +369,11 @@ int main(int argc, char* args[])
 
 					if (RayCallback.hasHit()) {
 						printf("Hit Mesh %i", (int)RayCallback.m_collisionObject->getUserPointer());
-						//std::ostringstream oss;
-						//oss << "mesh " << (int)RayCallback.m_collisionObject->getUserPointer();
-						//message = oss.str();
+						
 					}
 					else {
 						printf("Not Hit");
-						//message = "background";
+						
 					}
 					break;
 				}
