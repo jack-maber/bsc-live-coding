@@ -7,10 +7,11 @@ class Camera
 {
 public:
 	Camera();
-
+	//Updates the camera position
 	void FPSUpdate();
-	void Update();
-
+	//Updates the view point 
+	void ViewUpdate();
+//Camera Properties 
 private:
 	glm::vec3 m_CameraPosition;
 	glm::vec3 m_CameraTarget;

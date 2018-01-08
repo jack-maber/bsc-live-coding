@@ -25,8 +25,8 @@ void Camera::FPSUpdate()
 	m_CameraPosition += m_FPScameraPos;
 	m_CameraTarget += m_FPScameraPos;
 }
-
-void Camera::Update()
+//Updates the View Matrix
+void Camera::ViewUpdate()
 {
 	m_ViewMatrix = glm::lookAt(m_CameraPosition, m_CameraTarget, m_CameraUp);
 }

@@ -335,17 +335,6 @@ int main(int argc, char* args[])
 					FPScameraPos = cross(cameraDirection, cameraUp) * 0.5f;
 					break;
 				
-				case SDLK_t:
-					GameObject * pCar = new GameObject();
-					pCar->setPosition(vec3(0.5f, 0.0f, 0.0f));
-					pCar->loadMeshesFromFile("armoredrecon.fbx");
-					pCar->loadDiffuseTextureFromFile("armoredrecon_diff.png");
-					pCar->loadShaderProgram("textureVert.glsl", "textureFrag.glsl");
-					gameObjectList.push_back(pCar);
-
-					pCar->SetRigidbody;
-					
-					dynamicsWorld->addRigidBody(pCar->m_rigidBody);
 				case SDLK_RIGHT:
 					//Apply an impulse to car
 					carRigidbody->applyCentralForce(btVector3(-5, 0, 0) * 50);
@@ -371,7 +360,17 @@ int main(int argc, char* args[])
 					InvertGravity *= -1;
 					dynamicsWorld->setGravity(btVector3(0.0, InvertGravity, 0.0));
 					break;
-				
+					
+
+					//Changes post proccesing effects 
+				case SDLK_p:
+					pCar->loadShaderProgram("passThroughVert.glsl", "postBlackAndWhite.glsl");
+					break;
+
+					//Changes post proccesing effects 
+				case SDLK_o:
+					pCar->loadShaderProgram("textureVert.glsl", "textureFrag.glsl");
+					break;
 
 				case SDLK_LCTRL:
 					//Raycast Controls
@@ -379,20 +378,23 @@ int main(int argc, char* args[])
 					out_direction = glm::normalize(out_direction);
 					glm::vec3 out_end = cameraPosition + out_direction*1000.0f;
 
+					//Declares Raycast position
 					btCollisionWorld::ClosestRayResultCallback RayCallback(
 						btVector3(cameraPosition.x, cameraPosition.y, cameraPosition.z),
 						btVector3(out_end.x, out_end.y, out_end.z)
 					);
+					//Calls back position of object
 					dynamicsWorld->rayTest(
 						btVector3(cameraPosition.x, cameraPosition.y, cameraPosition.z),
 						btVector3(out_end.x, out_end.y, out_end.z),
 						RayCallback
 					);
-
+					//If raycast hits a physics object it's user pointer is printed to window
 					if (RayCallback.hasHit()) {
 						printf("Hit Mesh %i", (int)RayCallback.m_collisionObject->getUserPointer());
 						
 					}
+					//And if not returns a not hit message 
 					else {
 						printf("Not Hit");
 						
@@ -425,7 +427,7 @@ int main(int argc, char* args[])
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		
 		//Changes Background Colour
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 		glClearDepth(1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
