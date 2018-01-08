@@ -175,6 +175,7 @@ int main(int argc, char* args[])
 
 	btDiscreteDynamicsWorld* dynamicsWorld = new btDiscreteDynamicsWorld(dispatcher, overlappingPairCache, solver, collisionConfiguration);
 
+	//Sets 
 	dynamicsWorld->setGravity(btVector3(0, -2, 0));
 
 	//Creates Floor
@@ -220,6 +221,7 @@ int main(int argc, char* args[])
 	btRigidBody* carRigidbody = new btRigidBody(carRbInfo);
 	carRigidbody->setActivationState(DISABLE_DEACTIVATION);
 
+	//Adds Car Ridgidbody to Dynamicworld 
 	dynamicsWorld->addRigidBody(carRigidbody);
 
 	//Sets Impulse Direction 
@@ -231,6 +233,7 @@ int main(int argc, char* args[])
 	
 #pragma endregion
 
+#pragma region Raycast
 	//Raycast code comes from :http://www.opengl-tutorial.org/miscellaneous/clicking-on-objects/picking-with-a-physics-library/
 
 	// The ray Start and End positions, in Normalized Device Coordinates (Have you read Tutorial 4 ?)
@@ -262,10 +265,13 @@ int main(int argc, char* args[])
 
 	glm::vec3 lRayDir_world(lRayEnd_world - lRayStart_world);
 	lRayDir_world = glm::normalize(lRayDir_world);
-
+#pragma endregion
+	
 	//Locks cursor to OPENGL screen 
 	SDL_SetRelativeMouseMode(SDL_bool(SDL_ENABLE));
 
+	
+	
 	//Timing Declarations
 	int lastTicks = SDL_GetTicks();
 	int currentTicks = SDL_GetTicks();
@@ -297,7 +303,7 @@ int main(int argc, char* args[])
 				// Limits Camera View
 				if (CameraY > 150.0f) CameraY = 150.0f; else if (CameraY < -150.0f) CameraY = -150.0f;
 				
-				// Calculate camera target using CameraX and CameraY
+				// Calculate camera target 
 				cameraTarget = cameraPosition + CameraDistance * vec3(cos(CameraX), tan(CameraY), sin(CameraX));
 				
 				// Normalises Camera Direction 
@@ -315,7 +321,7 @@ int main(int argc, char* args[])
 					running = false;
 					break;
 				
-					//Movement Keys
+					//Camera Movement Keys
 				case SDLK_w:
 					FPScameraPos = cameraDirection * 0.2f;
 					break;
@@ -328,31 +334,47 @@ int main(int argc, char* args[])
 				case SDLK_d:
 					FPScameraPos = cross(cameraDirection, cameraUp) * 0.5f;
 					break;
+				
+				case SDLK_t:
+					GameObject * pCar = new GameObject();
+					pCar->setPosition(vec3(0.5f, 0.0f, 0.0f));
+					pCar->loadMeshesFromFile("armoredrecon.fbx");
+					pCar->loadDiffuseTextureFromFile("armoredrecon_diff.png");
+					pCar->loadShaderProgram("textureVert.glsl", "textureFrag.glsl");
+					gameObjectList.push_back(pCar);
 
+					pCar->SetRigidbody;
+					
+					dynamicsWorld->addRigidBody(pCar->m_rigidBody);
 				case SDLK_RIGHT:
 					//Apply an impulse to car
 					carRigidbody->applyCentralForce(btVector3(-5, 0, 0) * 50);
 					break;
 				
 				case SDLK_LEFT:
-					//Apply an impulse to car
+					//Apply an impulse to car in key direction
 					carRigidbody->applyCentralForce(btVector3(5, 0, 0) * 50);
 					break;
 				
 				case SDLK_UP:
-					//Apply an impulse to car
+					//Apply an impulse to car in key direction
 					carRigidbody->applyCentralForce(btVector3(0, 5, 0) * 50);
 					break;
-
+				
+				case SDLK_DOWN:
+					//Apply an impulse to car in key direction
+					carRigidbody->applyCentralForce(btVector3(0, -5, 0) * 50);
+					break;
 
 				case SDLK_SPACE:
 					//Invert gravity in simulation 
 					InvertGravity *= -1;
 					dynamicsWorld->setGravity(btVector3(0.0, InvertGravity, 0.0));
 					break;
-					
+				
+
 				case SDLK_LCTRL:
-					//Invert gravity in simulation 
+					//Raycast Controls
 					glm::vec3 out_direction = cameraTarget - cameraPosition;
 					out_direction = glm::normalize(out_direction);
 					glm::vec3 out_end = cameraPosition + out_direction*1000.0f;
@@ -380,28 +402,13 @@ int main(int argc, char* args[])
 				//Updates Camera Position 
 				cameraPosition += FPScameraPos;
 				cameraTarget += FPScameraPos;
-			
-				
-			
-			
-			
 			}
 		}
 
-		//Gets Tick
+		//Gets Tick and Steps through simulation
 		currentTicks = SDL_GetTicks();
 		float deltaTime = (float)(currentTicks - lastTicks) / 1000.0f;
-
 		dynamicsWorld->stepSimulation(1.f / 60.f, 10);
-
-		//carTransform = carRigidbody->getWorldTransform();
-		//btVector3 carOrigin = carTransform.getOrigin();
-		//btQuaternion carRotation = carTransform.getRotation();
-		////printf("Position %f\n", carOrigin.getY());
-
-		//carPosition = vec3(carOrigin.getX(), carOrigin.getY(), carOrigin.getZ());
-
-		//pCar->setPosition(carPosition);
 
 		//Sets View Matrix
 		viewMatrix = lookAt(cameraPosition, cameraTarget, cameraUp);
@@ -412,7 +419,7 @@ int main(int argc, char* args[])
 			pObj->update();
 		}
 	
-		//Enables Depth Test 
+		//Enables Depth Test and backface culling to save on processing 
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_CULL_FACE);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -496,9 +503,6 @@ int main(int argc, char* args[])
 		delete GroundRigidbody->getMotionState();
 	}
 	delete GroundRigidbody;
-
-	//delete dynamics world
-	//delete dynamicsWorld;
 
 	//delete solver
 	delete solver;
